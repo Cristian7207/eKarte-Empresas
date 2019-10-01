@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Ekarte - App Empresas
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+   <ion-card *ngIf="barcodenumber"> 
+      <ion-card-header>Número de Codigo de Barra</ion-card-header>
+      <ion-card-content>{{barcodenumber}}</ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="tarjetaconsultada[0]"> 
+      <ion-card-header>Detalle del Codigo de Barra</ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-card>
+          <li>Cliente: {{tarjetaconsultada[0].Cliente}}</li>
+          <li>Fecha Vencimiento Tarjeta: {{tarjetaconsultada[0].FechaVencimiento}}</li>
+          <li>Identificacion Cliente: {{tarjetaconsultada[0].Identificacion}}</li>
+          <li>Puntos Acumulados: {{tarjetaconsultada[0].Puntos}}</li>
+        </ion-card>
+    </ion-item>
+      </ion-list>
+    </ion-card>
+  </ion-content>
+  <ion-footer >
+      <ion-toolbar>
+    <ion-button  class="center" (click)="EscanearBarCode()" >Escanear</ion-button>
+    <ion-button  class="center" (click)="ConsultarBarCode()" [disabled]="!barcodenumber">Consultar</ion-button> 
+  </ion-toolbar>
+  </ion-footer> 
+  

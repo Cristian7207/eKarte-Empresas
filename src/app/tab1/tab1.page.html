@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ekarte - App Empresas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+ <ion-card *ngIf="barcodenumber"> 
+    <ion-card-header>Número de Codigo de Barra</ion-card-header>
+    <ion-card-content>{{barcodenumber}}</ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="tarjetaconsultada[0]"> 
+    <ion-card-header>Detalle del Codigo de Barra</ion-card-header>
+  <ion-list>
+    <ion-item>
+      <ion-card>
+        <li>Cliente: {{tarjetaconsultada[0].Cliente}}</li>
+        <li>Fecha Vencimiento Tarjeta: {{tarjetaconsultada[0].FechaVencimiento}}</li>
+        <li>Identificacion Cliente: {{tarjetaconsultada[0].Identificacion}}</li>
+        <li>Puntos Acumulados: {{tarjetaconsultada[0].Puntos}}</li>
+      </ion-card>
+  </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
+<ion-footer >
+    <ion-toolbar>
+  <ion-button  class="center" (click)="EscanearBarCode()" >Escanear</ion-button>
+  <ion-button  class="center" (click)="ConsultarBarCode()" [disabled]="!barcodenumber">Consultar</ion-button> 
+</ion-toolbar>
+</ion-footer> 
+
+
+
+<!--
+<ion-content>
+    <ion-card class="welcome-card">
+      <img src="/assets/shapes.svg" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle>Get Started</ion-card-subtitle>
+        <ion-card-title>Welcome to Ionic</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label>Resources</ion-label>
+      </ion-list-header>
+      <ion-item href="https://ionicframework.com/docs/">
+        <ion-icon slot="start" color="medium" name="book"></ion-icon>
+        <ion-label>Ionic Documentation</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
+        <ion-icon slot="start" color="medium" name="build"></ion-icon>
+        <ion-label>Scaffold Out Your App</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/layout/structure">
+        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+        <ion-label>Change Your App Layout</ion-label>
+      </ion-item>
+      <ion-item href="https://ionicframework.com/docs/theming/basics">
+        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
+        <ion-label>Theme Your App</ion-label>
+      </ion-item>
+    </ion-list>
+</ion-content>
+*-->
